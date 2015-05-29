@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension point="org.eclipse.ui.actionSets">
+      <actionSet label="Postgres Portable" visible="true" id="PorteblesDb.actionSet">
+         <menu label="Portátil" id="portblesDb">
+            <separator name="addPortables"> </separator>
+            <separator name="config"> </separator>
+         </menu>
+         <menu label="Databases" id="databases"  path="portblesDb/addPortables"> 
+            <separator name="pgsqlGrp"> </separator>
+            <separator name="mysqlGrp"> </separator>
+	     </menu>
+	     <menu label="Postgres" id="postgres"  path="portblesDb/databases/pgsqlGrp"> 
+            <separator name="pgsqlGrupo"> </separator>
+	     </menu>
+	     <menu label="MySQL" id="mysql"  path="portblesDb/databases/mysqlGrp"> 
+            <separator name="mysqlGrupo"> </separator>
+	     </menu>
+         <action menubarPath="portblesDb/databases/postgres/pgsqlGrupo"
+                 label="Parar"
+                 icon="icons/stopdb.ico"
+                 tooltip="Stop Service PostgreSQL"
+                 toolbarPath="Postgres"
+		         class="portable.actions.postgres.PararPostgresqlAction"
+		         id="pgsql.stop" >
+         </action>
+         <action menubarPath="portblesDb/databases/postgres/pgsqlGrupo"
+                 label="Iniciar"
+                 icon="icons/startdb.ico"
+                 tooltip="Start service PostgreSQL"
+                 toolbarPath="Postgres"
+		         class="portable.actions.postgres.IniciarPostgresqlAction"
+		         id="pgsql.start" >
+         </action>
+         <action
+               label="Parar"
+               icon="icons/stopdb.ico"
+               class="portable.actions.mysql.PararMysqlAction"
+               tooltip="Stop service MySQL"
+               menubarPath="portblesDb/databases/mysql/mysqlGrupo"
+               toolbarPath="MySQL"
+               id="mysql.start">
+         </action>
+         <action
+               label="Iniciar"
+               icon="icons/startdb.ico"
+               class="portable.actions.mysql.IniciarMysqlAction"
+               tooltip="Start service MySQL"
+               menubarPath="portblesDb/databases/mysql/mysqlGrupo"
+               toolbarPath="MySQL"
+               id="mysql.stop">
+         </action>
+         <action
+               label="Configuração"
+               icon="icons/config.ico"
+               class="portable.configuration.ConfigurarAction"
+               tooltip="Configuration"
+               menubarPath="portblesDb/config"
+               toolbarPath="pgsqlConfig"
+               id="portable.configuration.ConfigurarAction">
+         </action>
+      </actionSet>
+   </extension>
+</plugin>
